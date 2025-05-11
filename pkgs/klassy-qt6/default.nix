@@ -42,11 +42,7 @@ stdenv.mkDerivation rec {
 
   patches =
     [
-      (fetchpatch rec {
-        name = "project-version.patch";
-        url = "https://aur.archlinux.org/cgit/aur.git/plain/${name}?h=klassy";
-        hash = "sha256-y/wtvJw0sObvQtBRD92kOn/25rqiJ/TKG3fhQAdKJBo=";
-      })
+      ./project-version.patch
     ]
     ++ lib.optionals (lib.strings.versionAtLeast kdecoration.version "6.3.0") [
       (fetchpatch {
